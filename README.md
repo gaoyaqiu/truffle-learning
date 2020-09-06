@@ -37,6 +37,9 @@ web3.eth.getAccounts()
 
 // 获取指定块中特定账户地址的余额
 web3.eth.getBalance()
+
+// 转账
+web3.eth.sendTransaction({from: '0x9b7A9Af2e363D6e598C6EF925eb3cce40f808244', to: '0xEeF80F3850eBe5c9351451d2D3330Bff89F879e4', value: web3.utils.toWei('5', 'ether')})
 ```
 
 ### 单位转换
