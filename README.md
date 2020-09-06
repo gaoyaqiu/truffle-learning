@@ -6,8 +6,7 @@ truffle compile
 ### 部署合约
 ```
 truffle develop
-
-deploy
+deploy 或 migrate
 // 重新部署
 deploy --reset 
 ```
