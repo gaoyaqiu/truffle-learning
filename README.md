@@ -1,4 +1,23 @@
-## web3js api
+## Truffle Api
+### 编译合约
+```
+truffle compile
+```
+### 部署合约
+```
+truffle develop
+
+deploy
+// 重新部署
+deploy --reset 
+```
+
+### 显示已部署的合约地址
+```
+truffle networks
+```
+
+## Web3js Api
 ### 基础API命令
 ```
 // 记录了web3容器对象的版本
@@ -28,4 +47,20 @@ web3.utils.toWei()
 // 将给定的以wei为单位的值转换为其他单位的数值
 web3.utils.fromWei()
 
+```
+
+### 部署合约
+#### 智能合约内部相互调用
+```
+var myContract
+[合约名].deployed().then(function(instance){myContract = instance})
+myContract.[调用方法]
+```
+#### 通过json接口调用合约方法
+> 适合项目之外的合约调用，比如另外一个账户给这个合约转账，就需要用到这个合约地址
+```
+// 创建合约对象
+var myContract = new web3.eth.Contract([合约abi的json数据], [部署的合约地址])
+// 调用合约方法
+myContract.methods.mulAtoB(4,4).call()
 ```
