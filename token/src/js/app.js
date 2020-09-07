@@ -9,9 +9,11 @@ App = {
     initWeb3: function() {
         // Initialize web3 and set the provider to the testRPC.
         if (typeof web3 !== 'undefined') {
+            console.log(555);
             App.web3Provider = web3.currentProvider;
             web3 = new Web3(web3.currentProvider);
         } else {
+            console.log(666);
             // set the provider you want from Web3.providers
             App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
             web3 = new Web3(App.web3Provider);
@@ -28,7 +30,6 @@ App = {
 
             // Set the provider for our contract.
             App.contracts.TutorialToken.setProvider(App.web3Provider);
-
             // Use our contract to retieve and mark the adopted pets.
             return App.getBalances();
         });
@@ -81,12 +82,14 @@ App = {
             }
 
             var account = accounts[0];
+            console.log('account: ', account);
 
             App.contracts.TutorialToken.deployed().then(function(instance) {
                 tutorialTokenInstance = instance;
 
                 return tutorialTokenInstance.balanceOf(account);
             }).then(function(result) {
+                console.log('result', result)
                 balance = result.c[0];
 
                 $('#TTBalance').text(balance);
