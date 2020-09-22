@@ -66,3 +66,10 @@ var myContract = new web3.eth.Contract([合约abi的json数据], [部署的合�
 // 调用合约方法
 myContract.methods.mulAtoB(4,4).call()
 ```
+
+## 部署到 ropsten
+```
+truffle develop
+web3.setProvider('https://ropsten.infura.io/v3/55ae8525a018478998b9a34560f9af38')
+migrate --network ropsten
+```
